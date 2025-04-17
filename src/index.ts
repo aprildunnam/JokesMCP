@@ -21,6 +21,20 @@ server.tool('get-chuck-joke', {}, async () => {
   };
 });
 
+// Chuck Norris Categories Tool
+server.tool('get-chuck-categories', {}, async () => {
+  const response = await fetch('https://api.chucknorris.io/jokes/categories');
+  const data = await response.json();
+  return {
+    content: [
+      {
+        type: 'text',
+        text: data.join(', '),
+      },
+    ],
+  };
+});
+
 const app = express();
 
 // to support multiple simultaneous connections we have a lookup object from
