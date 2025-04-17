@@ -4,6 +4,7 @@ import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 
 const server = new McpServer({
   name: 'jokesSSE',
+  description: 'A server that provides jokes',
   version: '1.0.0',
   tools: [
     {
@@ -22,7 +23,6 @@ const server = new McpServer({
       parameters: {},
     },
   ],
-  description: 'A server that provides jokes',
 });
 
 // Get Chuck Norris joke tool
@@ -85,7 +85,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   // Get the full URI from the request
   const protocol = req.protocol;
   const host = req.get('host');
-  const fullUri = `${protocol}://${host}/messages`;
+  const fullUri = `${protocol}://${host}/mcpfy/v1/jokesSSE`;
 
   const transport = new SSEServerTransport(fullUri, res);
   transports[transport.sessionId] = transport;
@@ -95,7 +95,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   await server.connect(transport);
 });
 
-app.post('/messages', async (req: Request, res: Response) => {
+app.post('/mcpfy/v1/jokesSSE', async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
