@@ -3,7 +3,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 
 const server = new McpServer({
-  name: 'chuckNorrisJoke',
+  name: 'jokesSSE',
   version: '1.0.0',
 });
 

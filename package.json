@@ -1,7 +1,7 @@
 {
-  "name": "chucknorris-sse",
+  "name": "jokes-sse",
   "version": "1.0.0",
-  "description": "Chuck Norris MCP with SSE",
+  "description": "Jokes MCP with SSE",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
