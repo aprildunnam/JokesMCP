@@ -5,6 +5,8 @@ import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 const server = new McpServer({
   name: 'jokesSSE',
   version: '1.0.0',
+  tools: {},
+  description: 'A server that provides jokes',
 });
 
 // Get Chuck Norris joke tool
