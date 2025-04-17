@@ -94,7 +94,7 @@ app.get("/sse", async (req: Request, res: Response) => {
   const protocol = req.protocol;
   const host = req.get("host");
 
-  const fullUri = `${protocol}://${host}/`;
+  const fullUri = `${protocol}://${host}/messages`;
   const transport = new SSEServerTransport(fullUri, res);
 
   transports[transport.sessionId] = transport;
@@ -104,7 +104,7 @@ app.get("/sse", async (req: Request, res: Response) => {
   await server.connect(transport);
 });
 
-app.post("/", async (req: Request, res: Response) => {
+app.post("/messages", async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
