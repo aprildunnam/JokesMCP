@@ -7,7 +7,7 @@ const server = new McpServer({
   version: '1.0.0',
 });
 
-// Chuck Norris Joke Tool
+// Get Chuck Norris joke tool
 server.tool('get-chuck-joke', {}, async () => {
   const response = await fetch('https://api.chucknorris.io/jokes/random');
   const data = await response.json();
@@ -21,7 +21,7 @@ server.tool('get-chuck-joke', {}, async () => {
   };
 });
 
-// Chuck Norris Categories Tool
+// Get Chuck Norris joke categories tool
 server.tool('get-chuck-categories', {}, async () => {
   const response = await fetch('https://api.chucknorris.io/jokes/categories');
   const data = await response.json();
@@ -30,6 +30,24 @@ server.tool('get-chuck-categories', {}, async () => {
       {
         type: 'text',
         text: data.join(', '),
+      },
+    ],
+  };
+});
+
+// Get Dad joke tool
+server.tool('get-dad-joke', {}, async () => {
+  const response = await fetch('https://icanhazdadjoke.com/', {
+    headers: {
+      Accept: 'application/json',
+    },
+  });
+  const data = await response.json();
+  return {
+    content: [
+      {
+        type: 'text',
+        text: data.joke,
       },
     ],
   };
