@@ -26,21 +26,25 @@ const server = new McpServer({
 });
 
 // Get Chuck Norris joke tool
-server.tool('get-chuck-joke', 'Get a random Chuck Norris joke', async () => {
-  const response = await fetch('https://api.chucknorris.io/jokes/random');
-  const data = await response.json();
-  return {
-    content: [
-      {
-        type: 'text',
-        text: data.value,
-      },
-    ],
-  };
-});
+const getChuckJoke = server.tool(
+  'get-chuck-joke',
+  'Get a random Chuck Norris joke',
+  async () => {
+    const response = await fetch('https://api.chucknorris.io/jokes/random');
+    const data = await response.json();
+    return {
+      content: [
+        {
+          type: 'text',
+          text: data.value,
+        },
+      ],
+    };
+  }
+);
 
 // Get Chuck Norris joke categories tool
-server.tool(
+const getChuckCategories = server.tool(
   'get-chuck-categories',
   'Get all available categories for Chuck Norris jokes',
   async () => {
@@ -58,22 +62,26 @@ server.tool(
 );
 
 // Get Dad joke tool
-server.tool('get-dad-joke', 'Get a random dad joke', async () => {
-  const response = await fetch('https://icanhazdadjoke.com/', {
-    headers: {
-      Accept: 'application/json',
-    },
-  });
-  const data = await response.json();
-  return {
-    content: [
-      {
-        type: 'text',
-        text: data.joke,
+const getDadJoke = server.tool(
+  'get-dad-joke',
+  'Get a random dad joke',
+  async () => {
+    const response = await fetch('https://icanhazdadjoke.com/', {
+      headers: {
+        Accept: 'application/json',
       },
-    ],
-  };
-});
+    });
+    const data = await response.json();
+    return {
+      content: [
+        {
+          type: 'text',
+          text: data.joke,
+        },
+      ],
+    };
+  }
+);
 
 const app = express();
 
