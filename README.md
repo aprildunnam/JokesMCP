@@ -31,7 +31,7 @@ definitions:
 paths:
   /sse:
     get:
-      summary: MCP Server Actions for getting jokes (Dad Jokes and Chuck Norris Jokes)
+      summary: MCP Server Jokes Actions
       parameters:
         - in: query
           name: sessionId
