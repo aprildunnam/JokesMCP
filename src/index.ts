@@ -1,25 +1,25 @@
-import express, { Request, Response } from 'express';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
+import express, { Request, Response } from "express";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 
 const server = new McpServer({
-  name: 'jokesSSE',
-  description: 'A server that provides jokes',
-  version: '1.0.0',
+  name: "jokesSSE",
+  description: "A server that provides jokes",
+  version: "1.0.0",
   tools: [
     {
-      name: 'get-chuck-joke',
-      description: 'Get a random Chuck Norris joke',
+      name: "get-chuck-joke",
+      description: "Get a random Chuck Norris joke",
       parameters: {},
     },
     {
-      name: 'get-chuck-categories',
-      description: 'Get all available categories for Chuck Norris jokes',
+      name: "get-chuck-categories",
+      description: "Get all available categories for Chuck Norris jokes",
       parameters: {},
     },
     {
-      name: 'get-dad-joke',
-      description: 'Get a random dad joke',
+      name: "get-dad-joke",
+      description: "Get a random dad joke",
       parameters: {},
     },
   ],
@@ -27,15 +27,15 @@ const server = new McpServer({
 
 // Get Chuck Norris joke tool
 const getChuckJoke = server.tool(
-  'get-chuck-joke',
-  'Get a random Chuck Norris joke',
+  "get-chuck-joke",
+  "Get a random Chuck Norris joke",
   async () => {
-    const response = await fetch('https://api.chucknorris.io/jokes/random');
+    const response = await fetch("https://api.chucknorris.io/jokes/random");
     const data = await response.json();
     return {
       content: [
         {
-          type: 'text',
+          type: "text",
           text: data.value,
         },
       ],
@@ -45,16 +45,16 @@ const getChuckJoke = server.tool(
 
 // Get Chuck Norris joke categories tool
 const getChuckCategories = server.tool(
-  'get-chuck-categories',
-  'Get all available categories for Chuck Norris jokes',
+  "get-chuck-categories",
+  "Get all available categories for Chuck Norris jokes",
   async () => {
-    const response = await fetch('https://api.chucknorris.io/jokes/categories');
+    const response = await fetch("https://api.chucknorris.io/jokes/categories");
     const data = await response.json();
     return {
       content: [
         {
-          type: 'text',
-          text: data.join(', '),
+          type: "text",
+          text: data.join(", "),
         },
       ],
     };
@@ -63,19 +63,19 @@ const getChuckCategories = server.tool(
 
 // Get Dad joke tool
 const getDadJoke = server.tool(
-  'get-dad-joke',
-  'Get a random dad joke',
+  "get-dad-joke",
+  "Get a random dad joke",
   async () => {
-    const response = await fetch('https://icanhazdadjoke.com/', {
+    const response = await fetch("https://icanhazdadjoke.com/", {
       headers: {
-        Accept: 'application/json',
+        Accept: "application/json",
       },
     });
     const data = await response.json();
     return {
       content: [
         {
-          type: 'text',
+          type: "text",
           text: data.joke,
         },
       ],
@@ -89,33 +89,33 @@ const app = express();
 // sessionId to transport
 const transports: { [sessionId: string]: SSEServerTransport } = {};
 
-app.get('/sse', async (req: Request, res: Response) => {
+app.get("/sse", async (req: Request, res: Response) => {
   // Get the full URI from the request
   const protocol = req.protocol;
-  const host = req.get('host');
+  const host = req.get("host");
 
   const fullUri = `${protocol}://${host}/`;
   const transport = new SSEServerTransport(fullUri, res);
 
   transports[transport.sessionId] = transport;
-  res.on('close', () => {
+  res.on("close", () => {
     delete transports[transport.sessionId];
   });
   await server.connect(transport);
 });
 
-app.post('/', async (req: Request, res: Response) => {
+app.post("/", async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
     await transport.handlePostMessage(req, res);
   } else {
-    res.status(400).send('No transport found for sessionId');
+    res.status(400).send("No transport found for sessionId");
   }
 });
 
-app.get('/', (_req, res) => {
-  res.send('Chuck Norris MCP is running!');
+app.get("/", (_req, res) => {
+  res.send("Chuck Norris MCP is running!");
 });
 
 const PORT = process.env.PORT || 3001;
