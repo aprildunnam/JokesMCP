@@ -2,7 +2,7 @@
 
 ## Swagger Spec
 
-```json
+```yml
 swagger: '2.0'
 info:
   title: MCPJokesSSE
