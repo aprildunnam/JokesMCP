@@ -93,9 +93,10 @@ app.get('/sse', async (req: Request, res: Response) => {
   // Get the full URI from the request
   const protocol = req.protocol;
   const host = req.get('host');
-  const fullUri = `${protocol}://${host}/mcpfy/v1/jokesSSE`;
 
+  const fullUri = `${protocol}://${host}/sse`;
   const transport = new SSEServerTransport(fullUri, res);
+
   transports[transport.sessionId] = transport;
   res.on('close', () => {
     delete transports[transport.sessionId];
@@ -103,7 +104,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   await server.connect(transport);
 });
 
-app.post('/mcpfy/v1/jokesSSE', async (req: Request, res: Response) => {
+app.post('/', async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
