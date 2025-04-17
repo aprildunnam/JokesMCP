@@ -5,28 +5,28 @@ import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 const server = new McpServer({
   name: 'jokesSSE',
   version: '1.0.0',
-  tools: {
-    'get-chuck-joke': {
-      name: 'Get Chuck Norris Joke',
+  tools: [
+    {
+      name: 'get-chuck-joke',
       description: 'Get a random Chuck Norris joke',
       parameters: {},
     },
-    'get-chuck-categories': {
-      name: 'Get Chuck Norris Joke Categories',
+    {
+      name: 'get-chuck-categories',
       description: 'Get all available categories for Chuck Norris jokes',
       parameters: {},
     },
-    'get-dad-joke': {
-      name: 'Get Dad Joke',
+    {
+      name: 'get-dad-joke',
       description: 'Get a random dad joke',
       parameters: {},
     },
-  },
+  ],
   description: 'A server that provides jokes',
 });
 
 // Get Chuck Norris joke tool
-server.tool('get-chuck-joke', {}, async () => {
+server.tool('get-chuck-joke', 'Get a random Chuck Norris joke', async () => {
   const response = await fetch('https://api.chucknorris.io/jokes/random');
   const data = await response.json();
   return {
@@ -40,21 +40,25 @@ server.tool('get-chuck-joke', {}, async () => {
 });
 
 // Get Chuck Norris joke categories tool
-server.tool('get-chuck-categories', {}, async () => {
-  const response = await fetch('https://api.chucknorris.io/jokes/categories');
-  const data = await response.json();
-  return {
-    content: [
-      {
-        type: 'text',
-        text: data.join(', '),
-      },
-    ],
-  };
-});
+server.tool(
+  'get-chuck-categories',
+  'Get all available categories for Chuck Norris jokes',
+  async () => {
+    const response = await fetch('https://api.chucknorris.io/jokes/categories');
+    const data = await response.json();
+    return {
+      content: [
+        {
+          type: 'text',
+          text: data.join(', '),
+        },
+      ],
+    };
+  }
+);
 
 // Get Dad joke tool
-server.tool('get-dad-joke', {}, async () => {
+server.tool('get-dad-joke', 'Get a random dad joke', async () => {
   const response = await fetch('https://icanhazdadjoke.com/', {
     headers: {
       Accept: 'application/json',
@@ -81,7 +85,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   // Get the full URI from the request
   const protocol = req.protocol;
   const host = req.get('host');
-  const fullUri = `${protocol}://${host}/mcpfy/v1/jokes`;
+  const fullUri = `${protocol}://${host}/messages`;
 
   const transport = new SSEServerTransport(fullUri, res);
   transports[transport.sessionId] = transport;
@@ -91,7 +95,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   await server.connect(transport);
 });
 
-app.post('/mcpfy/v1/jokes', async (req: Request, res: Response) => {
+app.post('/messages', async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
@@ -100,6 +104,7 @@ app.post('/mcpfy/v1/jokes', async (req: Request, res: Response) => {
     res.status(400).send('No transport found for sessionId');
   }
 });
+
 app.get('/', (_req, res) => {
   res.send('Chuck Norris MCP is running!');
 });
