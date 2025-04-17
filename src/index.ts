@@ -63,7 +63,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   // Get the full URI from the request
   const protocol = req.protocol;
   const host = req.get('host');
-  const fullUri = `${protocol}://${host}/messages/`;
+  const fullUri = `${protocol}://${host}/sse`;
 
   const transport = new SSEServerTransport(fullUri, res);
   transports[transport.sessionId] = transport;
@@ -73,7 +73,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   await server.connect(transport);
 });
 
-app.post('/messages/', async (req: Request, res: Response) => {
+app.post('/sse', async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
@@ -89,5 +89,5 @@ app.get('/', (_req, res) => {
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(`✅ Server is running at http://localhost:${PORT}`);
+  console.log(`✅ Server is running at http://localhost:${PORT}/sse`);
 });
