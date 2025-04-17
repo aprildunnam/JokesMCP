@@ -63,7 +63,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   // Get the full URI from the request
   const protocol = req.protocol;
   const host = req.get('host');
-  const fullUri = `${protocol}://${host}/mcpfy/v1/chucknorris`;
+  const fullUri = `${protocol}://${host}/messages/`;
 
   const transport = new SSEServerTransport(fullUri, res);
   transports[transport.sessionId] = transport;
@@ -73,7 +73,7 @@ app.get('/sse', async (req: Request, res: Response) => {
   await server.connect(transport);
 });
 
-app.post('/mcpfy/v1/chucknorris', async (req: Request, res: Response) => {
+app.post('/messages/', async (req: Request, res: Response) => {
   const sessionId = req.query.sessionId as string;
   const transport = transports[sessionId];
   if (transport) {
