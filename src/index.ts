@@ -5,7 +5,23 @@ import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 const server = new McpServer({
   name: 'jokesSSE',
   version: '1.0.0',
-  tools: {},
+  tools: {
+    'get-chuck-joke': {
+      name: 'Get Chuck Norris Joke',
+      description: 'Get a random Chuck Norris joke',
+      parameters: {},
+    },
+    'get-chuck-categories': {
+      name: 'Get Chuck Norris Joke Categories',
+      description: 'Get all available categories for Chuck Norris jokes',
+      parameters: {},
+    },
+    'get-dad-joke': {
+      name: 'Get Dad Joke',
+      description: 'Get a random dad joke',
+      parameters: {},
+    },
+  },
   description: 'A server that provides jokes',
 });
 
@@ -91,5 +107,5 @@ app.get('/', (_req, res) => {
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(`✅ Server is running at http://localhost:${PORT}/sse`);
+  console.log(`✅ Server is running at http://localhost:${PORT}`);
 });
