@@ -1,0 +1,11 @@
+POST http://dlmcpssets-bvbyhacedpdcgmad.northeurope-01.azurewebsites.net/sse?sessionId=abe03859-344f-40c5-bf53-127d9077c1ca
+content-type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": "1",
+  "method": "tools/call",
+  "params": {
+    "name": "get-chuck-joke"
+  }
+}
