@@ -91,10 +91,9 @@ const transports: { [sessionId: string]: SSEServerTransport } = {};
 
 app.get("/sse", async (req: Request, res: Response) => {
   // Get the full URI from the request
-  const protocol = req.protocol;
   const host = req.get("host");
 
-  const fullUri = `${protocol}://${host}/mcpfy/v1/jokes`;
+  const fullUri = `https://${host}/mcpfy/v1/jokes`;
   const transport = new SSEServerTransport(fullUri, res);
 
   transports[transport.sessionId] = transport;
