@@ -22,6 +22,11 @@ const server = new McpServer({
       description: "Get a random dad joke",
       parameters: {},
     },
+    {
+      name: "get-yo-mama-joke",
+      description: "Get a random Yo Mama joke",
+      parameters: {},
+    },
   ],
 });
 
@@ -71,6 +76,26 @@ const getDadJoke = server.tool(
         Accept: "application/json",
       },
     });
+    const data = await response.json();
+    return {
+      content: [
+        {
+          type: "text",
+          text: data.joke,
+        },
+      ],
+    };
+  }
+);
+
+// Get Yo Mama joke tool
+const getYoMamaJoke = server.tool(
+  "get-yo-mama-joke",
+  "Get a random Yo Mama joke",
+  async () => {
+    const response = await fetch(
+      "https://www.yomama-jokes.com/api/v1/jokes/random"
+    );
     const data = await response.json();
     return {
       content: [
