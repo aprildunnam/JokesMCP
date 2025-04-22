@@ -71,7 +71,23 @@ TODO: finish the instructions
 
 TODO: write the instructions
 
-## Swagger Spec
+### Part 3: Create the Power Platform Connector
+
+1. Replace the `host` in the below OpenAPI v2 spec with the host of your web API
+1. Go to [https://make.powerapps.com/](https://make.powerapps.com/)
+1. Select `More` in the left menu
+1. Select the `Discover all` button
+1. Under Data, select the `pin icon` next to `Custom connectors` to pin it to the left menu
+1. Select `Custom connectors` in the left menu
+1. Select `New custom connector`
+1. Select `Create from blank`
+
+    ![](./assets/newconnector.png)
+
+1. Give the connector a name (for instance `JokesMCP`)
+1. Select the blue `Continue` button
+
+#### OpenAPI v2 Spec
 
 ```yml
 swagger: '2.0'
