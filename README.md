@@ -1,4 +1,4 @@
-# Jokes MCP Server (TypeScript SDK)
+# Jokes MCP Server
 
 Welcome to the Jokes MCP Server! This is a [MCP](https://modelcontextprotocol.io/introduction) server built on the [TypeScript SDK](https://github.com/modelcontextprotocol/csharp-sdk).
 
