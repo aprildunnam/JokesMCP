@@ -41,6 +41,8 @@ There are two parts of deploying this MCP Server:
 
 - Create a new GitHub repository based on the template
 - Deploy the Azure Web App and configure it to grab the source from the GitHub repository
+- Create the Power Platform Connector
+- Add the MCP Server as an action in Microsoft Copilot Studio
 
 ### Part 1: Create a new GitHub repository based on the template
 
@@ -86,57 +88,12 @@ TODO: write the instructions
 
 1. Give the connector a name (for instance `JokesMCP`)
 1. Select the blue `Continue` button
+1. Select the `Swagger editor` toggle
+ 
+    ![](./assets/swaggereditor.png)
 
-#### OpenAPI v2 Spec
+1. Copy the yaml code from [here](./assets/connector.yml) and paste it into the Swagger editor
 
-```yml
-swagger: '2.0'
-info:
-  title: Jokes MCP Server TS
-  description: Get jokes using MCP SSE server
-  version: '1.0'
-host: jokes-mcp-dummyurl.azurewebsites.net
-basePath: /
-schemes:
-  - https
-definitions:
-  QueryResponse:
-    type: object
-    properties:
-      jsonrpc:
-        type: string
-      id:
-        type: string
-      method:
-        type: string
-      params:
-        type: object
-      result:
-        type: object
-      error:
-        type: object
-paths:
-  /sse:
-    get:
-      summary: Jokes MCP Server TS
-      parameters:
-        - in: query
-          name: sessionId
-          type: string
-          required: false
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: Immediate Response
-          schema:
-            $ref: '#/definitions/QueryResponse'
-        '201':
-          description: Created and will follow callback
-      operationId: JokesMCPTS
-      tags:
-        - Agentic
-        - McpSse
-securityDefinitions: {}
-security: []
-```
+
+
+### Part 4: Add the MCP Server as an action in Microsoft Copilot Studio
