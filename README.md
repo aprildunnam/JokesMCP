@@ -38,6 +38,13 @@ This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazd
 
 ## Minimal Path To Awesome
 
+There are two parts of deploying this MCP Server:
+
+- Create a new GitHub repository based on the template
+- Deploy the Azure Web App and configure it to grab the source from the GitHub repository
+
+### Part 1: Create a new GitHub repository based on the template
+
 1. Select `Use this template`
 1. Select `Create a new repository
 
@@ -59,7 +66,11 @@ This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazd
 
     This will create a codespace and load it. This might take a little while.
 
-TODO: wrap it up 
+TODO: finish the instructions
+
+### Part 2: Deploy the Azure Web App and configure it to grab the source from the GitHub repository
+
+TODO: write the instructions
 
 ## Swagger Spec
 
