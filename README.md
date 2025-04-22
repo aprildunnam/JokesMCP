@@ -29,6 +29,38 @@ This tool retrieves the available categories from [chucknorris.io](https://api.c
 
 This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazdadjoke.com/).
 
+## Prerequisites
+
+- Copilot Studio trial / license
+- Azure Subscription (with payment method added)
+- Node installed (preferably with NVM)
+- Have a GitHub account and be logged in
+
+## Minimal Path To Awesome
+
+1. Select `Use this template`
+1. Select `Create a new repository
+
+    ![](./assets/usetemplate.png)
+
+1. Select the right `Owner` 
+1. Give it a `Repository name`
+1. Optionally you can give it a `Description`
+1. Select `Public` (if you want to make the repository publicly available) or `Private` (if you want to keep it private - **RECOMMENDED**)
+1. Select `Create repository`
+
+    This will take a little while. After it's done, you will be directed to the newly created repository.
+
+1. Select the green `Code` button
+1. Select the `Codespaces` tab
+1. Select the green `Create codespace on main` button
+ 
+    ![](./assets/createcodespace.png)
+
+    This will create a codespace and load it. This might take a little while.
+
+TODO: wrap it up 
+
 ## Swagger Spec
 
 ```yml
