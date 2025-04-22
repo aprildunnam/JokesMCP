@@ -31,7 +31,6 @@ This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazd
 
 ## Prerequisites
 
-- Copilot Studio trial / license
 - Azure Subscription (with payment method added)
 - Node installed (preferably with NVM)
 - Have a GitHub account and be logged in
