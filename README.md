@@ -90,7 +90,7 @@ TODO: write the instructions
  
     ![](./assets/swaggereditor.png)
 
-1. Copy the yaml code from [here](./assets/connector.yml) and paste it into the Swagger editor
+1. Copy the yaml code from [here](./assets/connector.yml) and replace the code in the Swagger editor
 
 
 
