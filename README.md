@@ -91,7 +91,8 @@ TODO: write the instructions
     ![](./assets/swaggereditor.png)
 
 1. Copy the yaml code from [here](./assets/connector.yml) and replace the code in the Swagger editor
-
-
+1. Select `Create connector` to create the connector
 
 ### Part 4: Add the MCP Server as an action in Microsoft Copilot Studio
+
+TODO: write the instructions
