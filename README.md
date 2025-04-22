@@ -5,11 +5,13 @@ Welcome to the Jokes MCP Server! This is a [MCP](https://modelcontextprotocol.io
 With this MCP Server, you will able to fetch jokes from the following websites:
 - [chucknorris.io](https://api.chucknorris.io/)
 - [icanhazdadjoke.com](https://icanhazdadjoke.com/)
+- [yomama-jokes.com](https://www.yomama-jokes.com)
 
 <table>
   <tr>
     <td><a href="https://api.chucknorris.io/"><img src="https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png" style="height:225px;width:450px;" alt="ChuckNorris.IO" /></a></td>
     <td><a href="https://icanhazdadjoke.com/"><img src="https://icanhazdadjoke.com/static/smile.svg" style="height:300px;width:300px;" alt="icanhazdadjoke.com" /></a></td>
+    <td><a href="https://www.yomama-jokes.com">yomama-jokes.com</a></td>
   </tr>
 </table>
 
@@ -28,6 +30,10 @@ This tool retrieves the available categories from [chucknorris.io](https://api.c
 ### get-dad-joke
 
 This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazdadjoke.com/).
+
+### get-yo-mama-joke
+
+This tool retrieves a random Yo Mama Joke from [yomama-jokes.com](https://www.yomama-jokes.com).
 
 ## Prerequisites
 
