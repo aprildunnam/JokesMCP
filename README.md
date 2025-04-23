@@ -1,31 +1,14 @@
-# Jokes MCP Server
+# Using an MCP Server with Microsoft Copilot Studio
 
-Welcome to the Jokes MCP Server! This is a [MCP](https://modelcontextprotocol.io/introduction) server built on the [TypeScript SDK](https://github.com/modelcontextprotocol/csharp-sdk).
+Welcome to the using an MCP Server with Microsoft Copilot Studio lab. In this lab, you will learn how to deploy an MCP Server, and how to add it to Microsoft Copilot Studio.
 
-With this MCP Server, you will able to fetch jokes from the following websites:
-- [chucknorris.io](https://api.chucknorris.io/)
-- [icanhazdadjoke.com](https://icanhazdadjoke.com/)
-- [yomama-jokes.com](https://www.yomama-jokes.com)
+## What is MCP?
 
-## Tools
+Model Context Protocol (MCP) is a standardized interface developed by Anthropic that enables external systems to interact with AI models by providing relevant context and receiving responses. In Microsoft Copilot Studio, you can add an MCP Server as a action. MCP Servers can consist of resources, tools and/or prompts. The tools are currently supported in Microsoft Copilot Studio.
 
-The following tools are included:
+## MCP vs Connectors
 
-### get-chuck-joke
-
-This tool retrieves a random Chuck Norris Joke from [chucknorris.io](https://api.chucknorris.io/).
-
-### get-chuck-categories
-
-This tool retrieves the available categories from [chucknorris.io](https://api.chucknorris.io/).
-
-### get-dad-joke
-
-This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazdadjoke.com/).
-
-### get-yo-mama-joke
-
-This tool retrieves a random Yo Mama Joke from [yomama-jokes.com](https://www.yomama-jokes.com).
+TODO: Why would you use MCP instead of connectors?
 
 ## Prerequisites
 
@@ -35,10 +18,10 @@ This tool retrieves a random Yo Mama Joke from [yomama-jokes.com](https://www.yo
 
 ## Minimal Path To Awesome
 
-There are two parts of deploying this MCP Server:
+To be able to deploy this MCP Server and use it in Microsoft Copilot Studio, you need to go through the following actions:
 
 - Create a new GitHub repository based on the template
-- Deploy the Azure Web App and configure it to grab the source from the GitHub repository
+- Set up the MCP Server as an Azure Web App
 - Create the Power Platform Connector
 - Add the MCP Server as an action in Microsoft Copilot Studio
 
@@ -96,3 +79,32 @@ TODO: write the instructions
 ### Part 4: Add the MCP Server as an action in Microsoft Copilot Studio
 
 TODO: write the instructions
+
+## Jokes MCP Server details
+
+This is a [MCP](https://modelcontextprotocol.io/introduction) server built on the [TypeScript SDK](https://github.com/modelcontextprotocol/csharp-sdk).
+
+With this MCP Server, you will able to fetch jokes from the following websites:
+- [chucknorris.io](https://api.chucknorris.io/)
+- [icanhazdadjoke.com](https://icanhazdadjoke.com/)
+- [yomama-jokes.com](https://www.yomama-jokes.com)
+
+## Tools
+
+The following tools are included:
+
+### get-chuck-joke
+
+This tool retrieves a random Chuck Norris Joke from [chucknorris.io](https://api.chucknorris.io/).
+
+### get-chuck-categories
+
+This tool retrieves the available categories from [chucknorris.io](https://api.chucknorris.io/).
+
+### get-dad-joke
+
+This tool retrieves a random Dad Joke from [icanhazdadjoke.com](https://icanhazdadjoke.com/).
+
+### get-yo-mama-joke
+
+This tool retrieves a random Yo Mama Joke from [yomama-jokes.com](https://www.yomama-jokes.com).
