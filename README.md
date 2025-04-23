@@ -4,7 +4,7 @@ Welcome to the using an MCP Server with Microsoft Copilot Studio lab. In this la
 
 ## What is MCP?
 
-Model Context Protocol (MCP) is a standardized interface developed by Anthropic that enables external systems to interact with AI models by providing relevant context and receiving responses. In Microsoft Copilot Studio, you can add an MCP Server as a action. MCP Servers can consist of resources, tools and/or prompts. The tools are currently supported in Microsoft Copilot Studio.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is a standardized interface developed by [Anthropic](https://www.anthropic.com/) that enables external systems to interact with AI models by providing relevant context and receiving responses. In Microsoft Copilot Studio, you can add an MCP Server as a action. MCP Servers can consist of resources, tools and/or prompts. The tools are currently supported in Microsoft Copilot Studio.
 
 ## MCP vs Connectors
 
