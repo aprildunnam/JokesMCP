@@ -40,15 +40,8 @@ To be able to deploy this MCP Server and use it in Microsoft Copilot Studio, you
 
     This will take a little while. After it's done, you will be directed to the newly created repository.
 
-1. Select the green `Code` button
-1. Select the `Codespaces` tab
-1. Select the green `Create codespace on main` button
- 
-    ![](./assets/createcodespace.png)
-
-    This will create a codespace and load it. This might take a little while.
-
-TODO: finish the instructions
+> **Warning**
+> After completing the steps in this lab, you will have an MCP Server running on Azure that is publicly available. Ideally, you don't want that. Make sure to delete the Azure Web App after finishing the lab.
 
 ### Part 2: Deploy the Azure Web App and configure it to grab the source from the GitHub repository
 
