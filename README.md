@@ -1,4 +1,4 @@
-# Using an MCP Server with Microsoft Copilot Studio
+# Using an MCP Server with Microsoft Copilot Studio 🧠🤖
 
 Welcome to the using an MCP Server with Microsoft Copilot Studio lab. In this lab, you will learn how to deploy an MCP Server, and how to add it to Microsoft Copilot Studio.
 
