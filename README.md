@@ -45,7 +45,190 @@ To be able to deploy this MCP Server and use it in Microsoft Copilot Studio, you
 
 ### Part 2: Deploy the Azure Web App and configure it to grab the source from the GitHub repository
 
-TODO: write the instructions
+1\. Go to `portal.azure.com`
+
+![Azure Portal](/assets/azureportal.png)
+
+
+2\. Hover over the `Resource groups` tab and select `Create`
+
+![Resource Group](/assets/selectResourceGroup.png)
+
+
+3\. Click the `Subscription` dropdown and select your subscription from the list
+
+![Select Subscription](/assets/selectSubscription.png)
+
+
+4\. Click in the `Resource group` name text box and type a resource group name such as "jokesgrp"
+
+![Resource Group Name](/assets/resourcegrpname.png)
+
+
+5\. Select the `Region` dropdown choose the region closest to you
+
+![Resource Group Region](/assets/resourcegrpregion.png)
+
+
+6\. Click `Review + create`
+
+![Review and create](/assets/resourcegrpreview.png)
+
+7\. Click `Create`
+
+![Create](/assets/resourcegrpcreate.png)
+
+
+8\. Select `Go to resource group`
+
+![Go to resource](/assets/gotoresource.png)
+
+
+9\. Select `Create`
+
+![Create](/assets/inresourcegrpcreate.png)
+
+
+10\. Click into the `search box`
+
+![Search](/assets/searchmarketplace.png)
+
+
+11\. Type `web app`
+
+
+12\. Select the `Create button` in the Web App search result
+
+![Search Results](/assets/createwebapp1.png)
+
+
+13\. Select `Web App`
+
+![Create Web App](/assets/createwebapp2.png)
+
+
+14\. Select the `Name` text input and put in a name for the web app, such as "wegotjokes"
+
+![Web App Name](/assets/webappname.png)
+
+
+15\. Select the `Runtime stack` dropdown and choose `Node 22 LTS` 
+
+![Web App Runtime](/assets/selectruntime.png)
+
+
+16\. Select the `Region` dropdown and choose the region closest to you
+
+![Region](/assets/webappselectregion.png)
+
+
+17\. Click `Review + create`
+
+![Review](/assets/webappreview.png)
+
+
+18\. Click `Create`
+
+![Create](/assets/webappcreate.png)
+
+
+19\. Click `Refresh` to update your deployment progress
+
+![Refresh](/assets/webapprefresh.png)
+
+
+20\. Once deployment is complete, select `Go to resource`
+
+![Go to resource](/assets/webappgotoresource.png)
+
+
+21\. Expand the `Deployment` tab
+
+![Deployment tab](/assets/webappdeployment.png)
+
+22\. Click `Deployment Center`
+
+![Deployment center](/assets/webappdeployctr.png)
+
+
+23\. Click the `Source` dropdown and select `GitHub` 
+
+![Choose source](/assets/webappsource.png)
+
+24\. Go to the `Jokes MCP Server Repo` and select `Use this template`
+
+![Github Repo](/assets/githubusetemplate.png)
+
+
+25\. Select `Create a new repository`
+
+![Create repo](/assets/githubcreaterepo.png)
+
+
+26\. Choose your repo as the owner
+
+![Repo Owner](/assets/githubrepoowner.png)
+
+
+27\. Enter a `repository name`, such as "aprilgotjokes"
+
+![Repo Name](/assets/githubreponame.png)
+
+
+28\. Click `Create repository`
+
+![Create](/assets/githubcreate.png)
+
+
+29\. Go back to the Deployment Center in Azure
+
+![Deployment Center](/assets/deploycenter.png)
+
+
+30\. Select `Authorize`
+
+![Authorize](/assets/deployauthorize.png)
+
+
+31\. Select `Continue`
+
+![Continue](/assets/githubauthcontinue.png)
+
+
+32\. Select `Authorize AzureAppService`
+
+![Authorize](/assets/githubauthappservice.png)
+
+
+33\. Click the `Organization` dropdown and choose your organization
+
+![Org Selection](/assets/githuborg.png)
+
+
+34\. Click on the `Repository` dropdown and dhoose your GitHub repo from the list
+
+![Repo Selection](/assets/githubrepo.png)
+
+
+35\. Click the `Branch` dropdown and choose your branch
+
+![Select Branch](/assets/githubbranch.png)
+
+
+36\. Keep everything else default and select `Save`
+
+![Save](/assets/githubsave.png)
+
+
+37\. Click `Refresh` to update the deployment status
+
+![Refresh](/assets/githubrefresh.png)
+
+
+38\. Verify that the deployment is complete
+
+![](/assets/deploydone.png)
+
 
 ### Part 3: Create the Power Platform Connector
 
